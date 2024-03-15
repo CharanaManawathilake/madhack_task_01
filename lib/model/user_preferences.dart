@@ -8,6 +8,18 @@ class UserPreferences {
     email: 'sarah.abs@gmail.com',
     about:
         'Certified Personal Trainer and Nutritionist with years of experience in creating effective diets and training plans focused on achieving individual customers goals in a smooth way.',
-    isDarkMode: false,
+    workExperience: [
+      'Worked in project ABC',
+      'Published paper on PQR',
+      'Did a research on LMN'
+    ],
+    education: [
+      'Undergraduate at 123 University'
+    ],
+    qualifications: [
+      'Certified by the JKL organization'
+    ]
+
+    
   );
 }

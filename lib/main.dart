@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           // Define your app's theme here
           ),
-      home: jobList(),
+      home: ProfilePage(),
     );
   }
 }
