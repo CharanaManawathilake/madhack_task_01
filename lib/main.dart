@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           // Define your app's theme here
           ),
-      home: SignUp(),
+      home: ProfilePage(),
     );
   }
 }
