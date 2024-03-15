@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:madhack_task_01/pages/jobList.dart';
 import 'pages/profile.dart';
 import 'pages/signup.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           // Define your app's theme here
           ),
-      home: ProfilePage(),
+      home: jobList(),
     );
   }
 }
