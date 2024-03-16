@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:madhack_task_01/utils/api_endpoints.dart';
 // import 'package:fluttertoast/fluttertoast.dart' as toast;
 
 class SignUp extends StatefulWidget {
@@ -36,8 +37,9 @@ class _SignUpState extends State<SignUp> {
                     Container(
                         padding: EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
-	                            border: Border(bottom: BorderSide(color:  Color.fromRGBO(143, 148, 251, 1)))
-	                      ),
+                            border: Border(
+                                bottom: BorderSide(
+                                    color: Color.fromRGBO(143, 148, 251, 1)))),
                         child: TextField(
                             controller: name,
                             decoration: InputDecoration(
@@ -48,8 +50,9 @@ class _SignUpState extends State<SignUp> {
                     Container(
                         padding: EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
-	                            border: Border(bottom: BorderSide(color:  Color.fromRGBO(143, 148, 251, 1)))
-	                      ),
+                            border: Border(
+                                bottom: BorderSide(
+                                    color: Color.fromRGBO(143, 148, 251, 1)))),
                         child: TextField(
                             controller: email,
                             decoration: InputDecoration(
@@ -60,8 +63,9 @@ class _SignUpState extends State<SignUp> {
                     Container(
                         padding: EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
-	                            border: Border(bottom: BorderSide(color:  Color.fromRGBO(143, 148, 251, 1)))
-	                      ),
+                            border: Border(
+                                bottom: BorderSide(
+                                    color: Color.fromRGBO(143, 148, 251, 1)))),
                         child: TextField(
                             controller: password,
                             obscureText: true,
@@ -73,8 +77,9 @@ class _SignUpState extends State<SignUp> {
                     Container(
                         padding: EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
-	                            border: Border(bottom: BorderSide(color:  Color.fromRGBO(143, 148, 251, 1)))
-	                      ),
+                            border: Border(
+                                bottom: BorderSide(
+                                    color: Color.fromRGBO(143, 148, 251, 1)))),
                         child: TextField(
                             controller: confirm_password,
                             obscureText: true,
@@ -86,11 +91,10 @@ class _SignUpState extends State<SignUp> {
                     Container(
                       padding: EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
-	                            border: Border(bottom: BorderSide(color:  Color.fromRGBO(143, 148, 251, 1)))
-	                    ),
-                      
+                          border: Border(
+                              bottom: BorderSide(
+                                  color: Color.fromRGBO(143, 148, 251, 1)))),
                       child: DropdownButton<String>(
-                      
                         isExpanded: true,
                         value: dropdownValue,
                         onChanged: (String? newValue) {
@@ -98,13 +102,13 @@ class _SignUpState extends State<SignUp> {
                             dropdownValue = newValue!;
                           });
                         },
-                        
                         items: <String>['jobApplicant', 'employer']
                             .map((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Padding(
-                              padding: EdgeInsets.all(8.0), // Adjust padding here
+                              padding:
+                                  EdgeInsets.all(8.0), // Adjust padding here
                               child: Text(value),
                             ),
                           );
@@ -114,8 +118,8 @@ class _SignUpState extends State<SignUp> {
                     GestureDetector(
                         onTap: () async {
                           // Navigator.pushNamed(context, '/');
-                          var url =
-                              Uri.http("localhost:4000", "/api/auth/signup");
+                          var url = Uri.http(ApiEndPoints.baseUrl,
+                              ApiEndPoints.authEndpoints.signup);
                           // var response = await http.post(url, body: {});
                           // print(response.body);
                           var response = await http.post(url, body: {
@@ -128,28 +132,30 @@ class _SignUpState extends State<SignUp> {
                           // print(response.statusCode);
 
                           if (response.statusCode == 200) {
-                            Navigator.pushNamed(context, '/');
+                            Navigator.pushNamed(context, '/signin');
                           } else {
                             // Fluttertoast.showToast(msg: "Error occured");
-                            print(response.body);
+                            print("error");
                             // I can't add a fluttertoast notificatoin, it keeps creating a breakpoint
                           }
                         },
                         child: Container(
                           height: 50,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            gradient: LinearGradient(
-                              colors: [
+                              borderRadius: BorderRadius.circular(10),
+                              gradient: LinearGradient(colors: [
                                 Color.fromRGBO(143, 148, 251, 1),
                                 Color.fromRGBO(143, 148, 251, .6),
-                              ]
-                            )
-                          ),
+                              ])),
                           child: Center(
-                            child: Text("Sign Up", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                            child: Text(
+                              "Sign Up",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
-	                  )),
+                        )),
                   ]),
             ),
           ],
